@@ -91,3 +91,34 @@ body {
     box-shadow: 0 0 30px rgba(255, 192, 203, 1), 0 0 60px rgba(255, 105, 180, 0.8);
   }
 }
+
+.font-bbh {
+  font-family: 'BBH Sans Hegarty', cursive;
+}
+
+.font-fjalla {
+  font-family: 'Fjalla One', sans-serif;
+}
+
+.text-white-highlight {
+  text-shadow:
+    0 0 5px rgb(63, 3, 3),
+    0 0 5px rgb(255, 0, 0),
+    0 0 5px rgb(233, 46, 46);
+}
+
+.text-black-highlight {
+  text-shadow:
+    0 0 5px rgba(173, 99, 99, 0.829),
+    0 0 5px rgb(182, 145, 145),
+    0 0 5px rgb(77, 26, 26);
+}
+
+.text-dim-highlight {
+  text-shadow:
+    0 0 5px rgba(230, 52, 52, 0.829),
+    0 0 5px rgb(230, 72, 209),
+    0 0 5px rgb(204, 79, 79);
+}
+
+
