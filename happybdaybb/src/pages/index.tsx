@@ -103,7 +103,7 @@ export default function Home() {
   }, [entered]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-600 to-pink-400 overflow-x-hidden relative">
+    <div className="min-h-screen bg-gradient-to-r from-[#A6D8FF] via-[#FF8CCF] to-[#FFB76B] overflow-x-hidden relative">
       {/* Floating Particles */}
       {entered && (
         <div
@@ -123,14 +123,14 @@ export default function Home() {
       {/* Landing Page */}
       {!entered && (
         <div className="flex flex-col items-center justify-center min-h-screen">
-          <h1 className="text-white text-6xl md:text-7xl font-bold mb-8 text-center drop-shadow-lg">
+          <h1 className="text-white text-5xl md:text-7xl font-bold mb-8 text-center drop-shadow-lg">
             Happy Birthday My Love!!!💖
           </h1>
           <button
             className="bg-white text-pink-600 font-bold px-8 py-4 rounded-full shadow-lg hover:scale-105 transition-transform"
             onClick={handleEnter}
           >
-            Open this please
+            please open this bb!
           </button>
         </div>
       )}
@@ -141,13 +141,14 @@ export default function Home() {
           ref={cardRef}
           className="flex flex-col md:flex-row items-center justify-center gap-12 p-8 max-w-6xl mx-auto min-h-screen"
         >
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden w-80 h-80 md:w-[490px] md:h-[360px] flex-shrink-0">
-            <Image
-              src={photo1}
-              alt="Photo"
-              className="w-full h-full object-cover"
-            />
-          </div>
+        <div className="relative w-80 h-80 md:w-[490px] md:h-[360px] flex-shrink-0">
+          <div className="absolute inset-0 pulse-glow pointer-events-none rounded-xl" />
+          <Image
+            src={photo1}
+            alt="Photo"
+            className="w-full h-full object-cover rounded-xl"
+          />
+        </div>
           <div className="flex-1 text-white">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
               My baby turns 23!
@@ -196,26 +197,12 @@ export default function Home() {
               <div className="w-0 h-0 border-t-8 border-b-8 border-l-12 border-t-transparent border-b-transparent border-l-white ml-1"></div>
             </div>
           </div>
-
           {/* Typewriter Text Container */}
           <div className="relative w-80 max-w-xl px-6 py-12 bg-white rounded-2xl shadow-xl flex flex-col items-center overflow-hidden mt-8 mb-16">
-            {/* Decorative floating hearts */}
-            {Array.from({ length: 12 }).map((_, i) => (
-              <div
-                key={i}
-                className="absolute w-4 h-4 bg-pink-400 rounded-full animate-bounce"
-                style={{
-                  top: `${Math.random() * 100}%`,
-                  left: `${Math.random() * 100}%`,
-                  opacity: 0.6,
-                }}
-              />
-            ))}
-
             {/* Letter text */}
             <div
-              ref={letterRef} 
-              className="relative text-center text-sm sm:text-base md:text-lg text-pink-700 break-words"
+              ref={letterRef}
+              className="relative text-center text-sm sm:text-base md:text-lg text-pink-700 break-words glow-text"
             />
           </div>
         </section>

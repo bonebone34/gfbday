@@ -24,3 +24,51 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ----------------------------- */
+/* Glowing & Pulsing Border Style */
+/* ----------------------------- */
+.pulse-glow {
+  border-radius: 1rem; /* matches rounded-xl */
+  box-shadow: 0 0 15px rgba(255, 192, 203, 0.7),
+              0 0 30px rgba(255, 105, 180, 0.5),
+              0 0 45px rgba(255, 0, 150, 0.3);
+  animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 192, 203, 0.5),
+                0 0 20px rgba(234, 48, 48, 0.3),
+                0 0 30px rgb(255, 255, 255);
+  }
+  100% {
+    box-shadow: 0 0 25px rgb(242, 23, 23),
+                0 0 50px rgba(255, 1, 1, 0.8),
+                0 0 75px rgb(255, 255, 255);
+  }
+  
+}
+
+.glow-text {
+  text-shadow:
+    0 0 5px rgba(255, 182, 193, 0.7),
+    0 0 10px rgba(255, 105, 180, 0.6),
+    0 0 15px rgba(255, 0, 150, 0.5);
+  animation: pulseText 2s infinite alternate;
+}
+
+@keyframes pulseText {
+  0% {
+    text-shadow:
+      0 0 2px rgba(255, 182, 193, 0.5),
+      0 0 5px rgba(255, 105, 180, 0.4),
+      0 0 10px rgba(255, 0, 150, 0.3);
+  }
+  100% {
+    text-shadow:
+      0 0 8px rgba(255, 182, 193, 1),
+      0 0 16px rgba(255, 105, 180, 0.8),
+      0 0 24px rgba(255, 0, 150, 0.6);
+  }
+}
