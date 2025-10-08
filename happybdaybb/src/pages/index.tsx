@@ -25,12 +25,14 @@ export default function Home() {
   const cascadeRef = useRef(null);
   const letterRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const audioFile = "/audio/audio.mp3";
 
   const handleEnter = () => setEntered(true);
 
   const cascadeImages = [photo2, photo3, photo4];
   const textMessage =
-    "My sweetest love, every day with you is a dream come true. Happy birthday! 💖";
+    "Hi, My Love. I just want to greet you with a very, very happy birthday. And I hope you're doing well. And I hope you're doing fine. And I hope everything is well. I just want to remind you that I'm always here for you. And that you can always count on me on every single thing. You can always lean on me. You can always depend on me, okay? I love you so much, baby. I love you, I love you, love you. I hope you have a wonderful day and I hope you have a wonderful birthday. And if you don't, then I'll make it a wonderful birthday for you. I'll do my best, okay? I love you so much, baby. I love you so much. I love you, baby. Happy birthday, my love. You thought I forgot about it? No, baby. No, no, no. I love you, baby. I love you so much. Please have a wonderful birthday and... Please stay beautiful, stay sexy, stay amazing, stay intelligent. Just be who you are, baby. You're completely perfect, completely fine. I love you so much. I love you, baby. You mean the world to me. I'm so happy you came into my life. I'm so happy I met you. I love you. I love you so much. I love you, Liviu. You're the most beautiful girl of my life. I love you. Please have a wonderful birthday, my love. I hope this helps and makes your day better and makes your birthday worth to look forward to. I know I'm so far away and I can't celebrate it close to you, but I hope you know that I'm celebrating it here by myself. Not actually with you. I mean... It's that... What I mean is that I'm always here for you. I'm always with you, my love. Okay? You can always count on me, huh? I love you, baby. Have a wonderful birthday, my love. I love you. I love you so much.";
 
   // Typewriter effect
   const typeWriter = (text: string, element: HTMLElement) => {
@@ -44,10 +46,21 @@ export default function Home() {
   };
 
   // Handle VHS play
-  const handlePlayMockAudio = () => {
-    setPlayMockAudio(true);
-    if (letterRef.current) typeWriter(textMessage, letterRef.current);
-  };
+    const handlePlayMockAudio = () => {
+      if (!audioRef.current) return;
+
+      if (audioRef.current.paused) {
+        audioRef.current.play();
+        setPlayMockAudio(true);
+
+        if (letterRef.current) {
+          typeWriter(textMessage, letterRef.current);
+        }
+      } else {
+        audioRef.current.pause();
+        setPlayMockAudio(false);
+      }
+    };
 
   useEffect(() => {
     if (!entered) return;
@@ -166,6 +179,11 @@ export default function Home() {
         />
       </Head>
 
+      <audio ref={audioRef}>
+        <source src={audioFile} type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
+
       <div
         className="min-h-screen bg-gradient-to-r from-[#A6D8FF] via-[#FF8CCF] to-[#FFB76B] overflow-x-hidden relative"
       >
@@ -264,6 +282,8 @@ export default function Home() {
           </section>
         )}
 
+        <audio ref={audioRef} src={audioFile} preload="auto" className="hidden" />
+
         {/* VHS Tape + Letter Section */}
         {entered && (
           <section className="mt-12 flex flex-col items-center space-y-12 pb-24">
@@ -272,13 +292,23 @@ export default function Home() {
               <div className="absolute left-4 w-6 h-6 bg-red-400 rounded-full" />
               <div className="absolute left-12 w-6 h-6 bg-green-400 rounded-full" />
 
-              {/* Play Button */}
-              <div
-                className="absolute right-4 w-12 h-12 bg-pink-900 rounded-sm flex items-center justify-center cursor-pointer hover:scale-105 transition-transform"
-                onClick={handlePlayMockAudio}
-              >
+            {/* Play/Pause Button */}
+            <div
+              className="absolute right-4 w-12 h-12 bg-pink-900 rounded-sm flex items-center justify-center cursor-pointer hover:scale-105 transition-transform"
+              onClick={handlePlayMockAudio}
+            >
+              {playMockAudio ? (
+                // Pause icon
+                <div className="flex gap-1">
+                  <div className="w-1.5 h-5 bg-white"></div>
+                  <div className="w-1.5 h-5 bg-white"></div>
+                </div>
+              ) : (
+                // Play icon
                 <div className="w-0 h-0 border-t-8 border-b-8 border-l-12 border-t-transparent border-b-transparent border-l-white ml-1"></div>
-              </div>
+              )}
+            </div>
+
             </div>
             {/* Typewriter Text Container */}
             <div className="relative w-80 max-w-xl px-6 py-12 bg-white rounded-2xl shadow-xl flex flex-col items-center overflow-hidden mt-8 mb-16">
