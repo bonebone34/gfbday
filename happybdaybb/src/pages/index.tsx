@@ -8,6 +8,8 @@ import photo2 from "@/assets/images/cas1.jpg";
 import photo3 from "@/assets/images/cas2.jpg";
 import photo4 from "@/assets/images/cas3.jpg";
 
+import cute from "@/assets/images/cute.png";
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
@@ -132,6 +134,9 @@ export default function Home() {
           >
             please open this bb!
           </button>
+          <Image
+            src={cute}
+          />
         </div>
       )}
 
