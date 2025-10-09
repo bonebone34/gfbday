@@ -241,7 +241,7 @@ export default function Home() {
                 </span>
               </h1>
               <p className="font-fjalla text-lg md:text-xl drop-shadow-md text-black-highlight">
-                Just how fast time has flied, I met you at 22 now I'm spending your 23rd with you my love.
+                Just how fast time has flied, I met you at 21 now I'm spending your 23rd with you my love.
                 <br/> I'm beyond blessed to have you in my life baby, Thank you for coming into my beautiful life.
                 <br/> I love you so much, happy birthday bebi😭😭
               </p>
